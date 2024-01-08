@@ -1,0 +1,3 @@
+let pokemon = [];
+
+export { pokemon };
