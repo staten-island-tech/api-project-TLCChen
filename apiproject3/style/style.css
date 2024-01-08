@@ -1,0 +1,237 @@
+html, body, *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
+}
+
+:root{
+  --light-blue: #2998ff;
+  --black: #000;
+  --white: #ffffff;
+  --dark-blue: #135cc5;
+  --light-red: #f87171;
+  --dark-red: #dc2626;
+  --gray: #252c30;
+  --card-red: #ea412e;
+  --border-yellow: #ffe066;
+  --magenta: #dea4b2;
+  --changing: linear-gradient(160deg, #302724, #ea412e);
+  --changing-cool: linear-gradient(160deg, #072053, #609be7);
+
+  /* Intentions */
+  --primary: var(--light-blue);
+  --secondary: var(--dark-blue);
+
+  --h1: 4rem;
+  --h2: 3rem;
+  --h3: 2rem;
+  --h4: 1.5rem;
+
+}
+
+h1{
+  text-align: center;
+}
+.box, .box3, .box4{
+  margin: 1rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  flex-direction: column;
+  text-align: center;
+  width: 80vw;
+  height: auto;
+  /* background-image: url("https://media1.tenor.com/m/Spmi9HLHEz0AAAAd/despite-all-my-rage.gif");
+  background-size: cover; */
+}
+
+/* move to index.css */
+.box2{
+  margin: 1rem auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  /* flex-direction: column; */
+  width: 80vw;
+  height: auto;
+  /* background-image: url("https://media1.tenor.com/m/Spmi9HLHEz0AAAAd/despite-all-my-rage.gif");
+  background-size: cover; */
+}
+
+.item{
+  width: 50%;
+  height: auto;
+  margin: auto;
+}
+
+.btn, .btn1, .btn3{
+  border-radius: 1.2rem;
+  border: .3rem outset #888;
+  position: relative;
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  color: #eee;
+  text-transform: uppercase;
+  letter-spacing: .4rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 1);
+  font-family: verdana;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-decoration: none;
+  background: linear-gradient(160deg, #666, #444);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+  transition: 0.2s;
+  margin: 1rem auto;
+}
+
+.btn4{
+  border-radius: .5rem;
+  border: .1rem outset #888;
+  position: relative;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  color: #eee;
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 1);
+  font-family: verdana;
+  font-size: .7rem;
+  font-weight: bolder;
+  text-decoration: none;
+  background: linear-gradient(160deg, #666, #444);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+  transition: 0.2s;
+  margin: .25rem auto;
+}
+
+.robin{
+  border-radius: 1.2rem;
+  position: relative;
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  color: #eee;
+  text-transform: uppercase;
+  letter-spacing: .4rem;
+  overflow: hidden;
+  font-family: verdana;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-decoration: none;
+  background: linear-gradient(160deg, rgb(142, 150, 38), rgb(104, 94, 4));
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
+  margin: 1rem auto;
+}
+.batmen{
+  /* can you make your own input (this isn't even an input) css instead of stealing a button */
+  border-radius: 1.2rem;
+  position: relative;
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  color: #eee;
+  text-transform: uppercase;
+  letter-spacing: .4rem;
+  overflow: hidden;
+  font-family: verdana;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-decoration: none;
+  background: linear-gradient(160deg, rgb(109, 97, 214), rgb(5, 34, 129));
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
+  margin: 1rem auto;
+}
+
+.input{
+  border-radius: 1.2rem;
+  border: .3rem outset #888;
+  position: relative;
+  display: inline-block;
+  padding: 1.5rem 3rem;
+  color: #eee;
+  text-transform: uppercase; 
+  letter-spacing: .4rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 1);
+  font-family: verdana;
+  font-size: 1.5rem;
+  font-weight: bolder;
+  text-decoration: none;
+  background: linear-gradient(160deg, #666, #444);
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, .5);
+  transition: 0.2s;
+  margin: 1rem auto;
+}
+
+.img{
+  width: 80%;
+  height: auto;
+  filter:contrast(0);
+  image-rendering: pixelated;
+  transition: filter 2s;
+}
+
+/* move to index.css */
+.img2{
+  width: 80%;
+  height: auto;
+  filter:contrast(1);
+  image-rendering: pixelated;
+}
+
+.img3{
+  width: 50%;
+  margin: auto;
+  height: auto;
+  filter:contrast(1);
+  image-rendering: pixelated;
+}
+
+.imgsee{
+  width: 80%;
+  height: auto;
+  filter:contrast(1);
+  image-rendering: pixelated;
+  transition: filter 2s;
+}
+
+h1{
+  font-size: var(--h1);
+}
+/* move to index.css */
+.item2{
+  background: var(--changing-cool);
+  border: solid 1rem var(--border-yellow);
+  border-radius: 1rem ;
+  box-shadow: 1rem 1rem 1rem rgb(0, 0, 0);
+  width: 40%;
+  height: auto;
+  margin: 1rem;
+  transition: all 500ms;
+  text-align: center;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.text{
+  font-size: var(--h2);
+  color: rgb(0, 0, 0);
+  background-color: rgb(240, 209, 193);
+  border-radius: .5rem;
+  width: 90%;
+  margin: auto;
+}
+
+.text2{
+  margin: auto;
+  background-image: url("https://static4.depositphotos.com/1000401/285/i/450/depositphotos_2857182-stock-photo-stars-in-space-or-night.jpg");
+  color: rgb(255, 255, 255);
+  font-size: var(--h3);
+  width: 80%;
+  border-radius: .5rem;
+}
+.description{
+  font-size: var(--h4);
+}
