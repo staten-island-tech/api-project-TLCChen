@@ -272,12 +272,6 @@ function indexCard(name, sprite, types) {
 function deleted() {
   document.querySelectorAll(".item").forEach((item) => itemBox.push(item));
   console.log(itemBox);
-  // const reverseBox = itemBox.reverse()
-  // const goAway = reverseBox.filter((item)=> reverseBox.indexOf(item) != 0)
-  // const goAway1 = reverseBox.filter((item)=> reverseBox.indexOf(item) === 0)
-  // console.log(goAway)
-  // console.log(goAway1)
-  // Does not work because it leaves the last pokemon from the previous press
   itemBox.forEach((item) => item.remove());
   itemBox = [];
 }
