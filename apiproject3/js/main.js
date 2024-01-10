@@ -198,34 +198,34 @@ function indexCard(name, sprite, types) {
         <p class ="description">This is ${name}</p>
         <button class="btn4">Evolution</button>
       </div>
-
       `
   );
 }
 
-async function speciesCard(){
-  document.querySelector(".box2").remove()
+async function speciesCard() {
+  document.querySelector(".box2").remove();
   document.body.insertAdjacentHTML(
     "beforeend",
     `
     <div class="box5">
     </div>
     `
-  )
-  await getDogs(data2.species.url)
-  dogs(data3.evolution_chain.url)
-  evolution.sort().forEach((call)=> getDogs3(call))
-  console.log(evolution.sort())
+  );
+  await getDogs(data2.species.url);
+  dogs(data3.evolution_chain.url);
+  evolution.sort().forEach((call) => getDogs3(call));
+  console.log(evolution.sort());
 }
 
-async function evolutionCard(){
-  document.querySelectorAll(".btn4").forEach((call)=>call.addEventListener("click", function(){
-    speciesCard()
-  }))
-  
+async function evolutionCard() {
+  document.querySelectorAll(".btn4").forEach((call) =>
+    call.addEventListener("click", function () {
+      speciesCard();
+    })
+  );
 }
 
-evolutionCard()
+evolutionCard();
 /////
 // let bob = [];
 // let cat = []
