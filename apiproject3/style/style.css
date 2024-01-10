@@ -42,7 +42,7 @@ h1{
   text-align: center;
   width: 80vw;
   height: auto;
-  background-image: url("https://media1.tenor.com/m/Spmi9HLHEz0AAAAd/despite-all-my-rage.gif");
+  /* background-image: url("https://media1.tenor.com/m/Spmi9HLHEz0AAAAd/despite-all-my-rage.gif"); */
   /* background-size: cover; */
 }
 
@@ -55,7 +55,7 @@ h1{
   /* flex-direction: column; */
   width: 80vw;
   height: auto;
-  background-image: url("https://media1.tenor.com/m/Spmi9HLHEz0AAAAd/despite-all-my-rage.gif");
+  /* background-image: url("https://media1.tenor.com/m/Spmi9HLHEz0AAAAd/despite-all-my-rage.gif"); */
   /* background-size: cover; */
 }
 
