@@ -8,6 +8,7 @@ import { getDogs } from "./indexFunctions";
 import { data3 } from "./indexFunctions";
 import { data4 } from "./indexFunctions";
 import { evolution } from "./indexFunctions";
+import { getDogs2, getDogs3 } from "./indexFunctions";
 console.log(pokemon);
 const URL = `https://pokeapi.co/api/v2/pokemon/?limit=900`;
 const url1 = "https://pokeapi.co/api/v2/item/?limit=10/";
@@ -202,18 +203,29 @@ function indexCard(name, sprite, types) {
   );
 }
 
-// async function speciesCard(){
-//   document.body.insertAdjacentHTML(
-//     "beforeend",
-//     `
-//     <div class="box5">
-//     </div>
-//     `
-//   )
-//   await getDogs(data2.species.url)
-//   dogs(data3.evolution_chain.url)
-//   evolution.forEach((call)=> getDogs3(call))
-// }
+async function speciesCard(){
+  document.querySelector(".box2").remove()
+  document.body.insertAdjacentHTML(
+    "beforeend",
+    `
+    <div class="box5">
+    </div>
+    `
+  )
+  await getDogs(data2.species.url)
+  dogs(data3.evolution_chain.url)
+  evolution.sort().forEach((call)=> getDogs3(call))
+  console.log(evolution.sort())
+}
+
+async function evolutionCard(){
+  document.querySelectorAll(".btn4").forEach((call)=>call.addEventListener("click", function(){
+    speciesCard()
+  }))
+  
+}
+
+evolutionCard()
 /////
 // let bob = [];
 // let cat = []
@@ -254,7 +266,7 @@ function indexCard(name, sprite, types) {
 // }
 
 // async function call2() {
-//   evolution.forEach((call) => create2(call));
+//   evolution.forEach((call) => getDogs3(call));
 // }
 
 // async function createEvolution(){
