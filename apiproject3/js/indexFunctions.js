@@ -46,7 +46,7 @@ async function getDogs(URL) {
   console.log(data3);
 }
 
-async function getDogs2(URL){
+async function getDogs2(URL) {
   const response = await fetch(URL);
   console.log(response);
   // 200-299
@@ -58,26 +58,26 @@ async function getDogs2(URL){
   console.log(data4);
 }
 
-  async function getDogs3(URL){
-    await getDogs2(URL)
-    const response = await fetch(data4.varieties[0].pokemon.url)
-    const data5 = await response.json();
-    document.querySelector(".box5").insertAdjacentHTML(
-      "beforeend",
-      `<div class="item2">
+async function getDogs3(URL) {
+  await getDogs2(URL);
+  const response = await fetch(data4.varieties[0].pokemon.url);
+  const data5 = await response.json();
+  document.querySelector(".box5").insertAdjacentHTML(
+    "beforeend",
+    `<div class="item2">
           <h2 class = "text">${data5.name.toUpperCase()}</h2>
           <img class = "img2" src=${data5.sprites.front_default} alt="This is ${
-        data5.name
-      }">
+      data5.name
+    }">
       </div>
       `
-    );
-  }
+  );
+}
 
 export { dogs };
 export { getDogs };
 export { data3 };
 export { evolution };
 export { data4 };
-export {getDogs2}
-export {getDogs3}
+export { getDogs2 };
+export { getDogs3 };
