@@ -64,7 +64,7 @@ async function getDogs2(URL){
     const data5 = await response.json();
     document.querySelector(".box5").insertAdjacentHTML(
       "beforeend",
-      `<div class="item2">
+      `<div class="item3">
           <h2 class = "text">${data5.name.toUpperCase()}</h2>
           <img class = "img2" src=${data5.sprites.front_default} alt="This is ${
         data5.name

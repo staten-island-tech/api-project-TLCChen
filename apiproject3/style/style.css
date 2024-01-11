@@ -202,7 +202,7 @@ h1{
   font-size: var(--h1);
 }
 /* move to index.css */
-.item2{
+.item2, .item3{
   background: var(--changing-cool);
   border: solid 1rem var(--border-yellow);
   border-radius: 1rem ;

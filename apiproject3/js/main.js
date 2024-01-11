@@ -1,4 +1,5 @@
 //pokemon_species shows habitats as well.
+// The last pokemon that exists when Home is pressed is added to the pokedex. The home2 button adds the pokemons to the evolutiondex?
 
 //import variables
 import { dogs } from "./indexFunctions";
@@ -9,9 +10,7 @@ import { data3 } from "./indexFunctions";
 import { data4 } from "./indexFunctions";
 import { evolution } from "./indexFunctions";
 import { getDogs2, getDogs3 } from "./indexFunctions";
-console.log(pokemon);
-const URL = `https://pokeapi.co/api/v2/pokemon/?limit=900`;
-const url1 = "https://pokeapi.co/api/v2/item/?limit=10/";
+const URL = `https://pokeapi.co/api/v2/pokemon/?limit=400`;
 
 let list2 = [];
 let itemBox = [];
@@ -79,17 +78,19 @@ function choose() {
       `
     );
     pokemon.forEach((call) => indexCard(call.name, call.sprite, call.types));
+    evolutionCard()
     home();
   });
 }
 
 function home() {
-  document.querySelector(".btn3").addEventListener("click", function () {
+  try{document.querySelector(".btn3").addEventListener("click", function () {
+    try{document.querySelector(".box5").remove();} catch{}
     document.querySelector(".box4").remove();
-    document.querySelector(".box2").remove();
+    try{document.querySelector(".box2").remove();} catch{}
     begin();
     choose();
-  });
+  });}catch{}
 }
 
 function home2() {
@@ -143,10 +144,6 @@ async function getData2() {
   try {
     const response = await fetch(num);
     console.log(response);
-    // 200-299
-    if (response.status != 200) {
-      throw new Error(response.statusText);
-    }
     const data = await response.json();
     data2 = data;
     console.log(data2);
@@ -162,14 +159,13 @@ async function getData2() {
 // Creates a card containing the pokemon.
 async function create() {
   await getData2();
-  document.querySelector(".box").insertAdjacentHTML(
+  try{document.querySelector(".box").insertAdjacentHTML(
     "beforeend",
     `<div class="item">
     <img class = "img" src=${data2.sprites.front_default} alt="This is ${data2.name}">
     </div>
     `
-  );
-  // speciesCard()
+  );}catch{}
 }
 
 async function createCard(info, list) {
@@ -213,77 +209,23 @@ async function speciesCard(){
     `
   )
   await getDogs(data2.species.url)
-  dogs(data3.evolution_chain.url)
-  evolution.sort().forEach((call)=> getDogs3(call))
-  console.log(evolution.sort())
+  await dogs(data3.evolution_chain.url)
+  evolution.forEach((call)=> getDogs3(call))
+  console.log(evolution)
 }
 
 async function evolutionCard(){
-  document.querySelectorAll(".btn4").forEach((call)=>call.addEventListener("click", function(){
-    speciesCard()
+  document.querySelectorAll(".btn4").forEach((call)=>call.addEventListener("click", async function(){
+    await speciesCard()
   }))
   
 }
-
-evolutionCard()
-/////
-// let bob = [];
-// let cat = []
-// async function getData4(num) {
-//   console.log(num);
-//   const response = await fetch(num);
-//   console.log(response);
-//   const data = await response.json();
-//   data4 = data;
-//   console.log(data4);
-//   console.log(data.name);
-//   data4.types.forEach((call) => bob.push(call.type.name));
-//   console.log(bob);
-// }
-
-// async function create2(num) {
-//   await getData4(num);
-//   data4.types.forEach((call) => bob.push(call.type.name));
-//   console.log(bob[0].toUpperCase());
-//   for (let i = 0; i <= bob.length - 1; i++) {
-//     cat.push(bob[i].toUpperCase());
-//   }
-//   console.log(cat);
-//   console.log(bob);
-//   document.querySelector(".box5").insertAdjacentHTML(
-//     "beforeend",
-//     `<div class="item2">
-//         <h2 class = "text">${data4.name.toUpperCase()}</h2>
-//         <img class = "img" src=${data4.sprites.front_default} alt="This is ${
-//       data4.name
-//     }">
-//         <p class = "text2">Type: ${cat.join(" | ")}</p>
-//         <p class ="description">This is ${data4.name.toUpperCase()}</p>
-//       </div>
-//       `
-//   );
-//   bob = [];
-// }
-
-// async function call2() {
-//   evolution.forEach((call) => getDogs3(call));
-// }
-
-// async function createEvolution(){
-//   document.querySelector(".box2").remove()
-//   document.body.insertAdjacentHTML("beforeend",
-//   `
-//   <div class="box5">
-//   </div>
-//   `)
-//   home()
-// }
 
 // Push all the existing cards into a list, itemBox.
 // Deletes all the cards in itemBox.
 function deleted() {
   document.querySelectorAll(".item").forEach((item) => itemBox.push(item));
-  console.log(itemBox);
+  // console.log(itemBox);
   itemBox.forEach((item) => item.remove());
   itemBox = [];
 }
@@ -303,7 +245,7 @@ async function call() {
     }
 
     if (again) {
-      document.querySelector(".input").value = "";
+      try{document.querySelector(".input").value = "";}catch{}
       deleted();
       await create();
 
@@ -324,7 +266,7 @@ async function call() {
 // create text for tries left
 async function check() {
   let tries = 0;
-  // These two causes
+  // These two causes problems
   // await getList();
   // await getData2();
   document.querySelector("#change").addEventListener("click", function () {
@@ -333,15 +275,15 @@ async function check() {
       document
         .querySelectorAll(".batmen")
         .forEach((item) => itemBox.push(item));
-      console.log(itemBox);
+      // console.log(itemBox);
       itemBox.forEach((item) => item.remove());
       document.querySelectorAll(".robin").forEach((item) => itemBox.push(item));
-      console.log(itemBox);
+      // console.log(itemBox);
       itemBox.forEach((item) => item.remove());
       console.log(tries);
       if (
         document.querySelector(".input").value.toLowerCase() === name2 ||
-        document.querySelector(".input").value.toLowerCase() === "pick a chu"
+        document.querySelector(".input").value.toLowerCase() === "pickachu"
       ) {
         again = true;
         const class1 = document.querySelector(".img");
@@ -385,8 +327,8 @@ async function check() {
       } else {
         pig = "try";
       }
-      document.querySelector(".input").value = "";
-      document.querySelector(".box").insertAdjacentHTML(
+      try{document.querySelector(".input").value = "";}catch{}
+      try{document.querySelector(".box").insertAdjacentHTML(
         "afterbegin",
         `
         <div class = "robin">
@@ -396,7 +338,7 @@ async function check() {
         <h2>You have ${5 - tries} ${pig} left.</h2>
         </div>
         `
-      );
+      );}catch{}
       console.log(again);
       console.log("YOU Have", loses);
       // if (loses >= 5) {
