@@ -16,26 +16,25 @@ async function dogs(URL) {
   // try/catch allows the function to skip over errors caused by pokemon that do not have more than one evolutions
   // add a command for chain evolutions
   try {
-    if(data.chain.evolves_to.length < 1){
+    if (data.chain.evolves_to.length < 1) {
       console.log(data.chain.evolves_to[0].species.name);
       evolution.push(data.chain.evolves_to[0].species.url);
-      console.log(data.chain.evolves_to.length)}
-    else{
-      for(let i = 0; i <= data.chain.evolves_to.length; i++){
+      console.log(data.chain.evolves_to.length);
+    } else {
+      for (let i = 0; i <= data.chain.evolves_to.length; i++) {
         evolution.push(data.chain.evolves_to[i].species.url);
       }
     }
-
   } catch {}
   try {
-    if(data.chain.evolves_to[0].evolves_to.length < 1){
+    if (data.chain.evolves_to[0].evolves_to.length < 1) {
       console.log(data.chain.evolves_to[0].evolves_to[0].species.name);
-      evolution.push(data.chain.evolves_to[0].evolves_to[0].species.url);}
-    else{
-      for(let i = 0; i <= data.chain.evolves_to[0].evolves_to.length; i++){
+      evolution.push(data.chain.evolves_to[0].evolves_to[0].species.url);
+    } else {
+      for (let i = 0; i <= data.chain.evolves_to[0].evolves_to.length; i++) {
         evolution.push(data.chain.evolves_to[0].evolves_to[i].species.url);
-    }}
-
+      }
+    }
   } catch {}
   console.log(evolution);
 }
