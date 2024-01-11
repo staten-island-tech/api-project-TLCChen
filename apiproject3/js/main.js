@@ -10,7 +10,7 @@ import { data3 } from "./indexFunctions";
 import { data4 } from "./indexFunctions";
 import { evolution } from "./indexFunctions";
 import { getDogs2, getDogs3 } from "./indexFunctions";
-const URL = `https://pokeapi.co/api/v2/pokemon/?limit=400`;
+const URL = `https://pokeapi.co/api/v2/pokemon/?limit=900`;
 
 let list2 = [];
 let itemBox = [];
@@ -77,7 +77,7 @@ function choose() {
       </div>
       `
     );
-    pokemon.forEach((call) => indexCard(call.name, call.sprite, call.types));
+    pokemon.forEach((call) => indexCard(call.name, call.sprite, call.types, call.link));
     evolutionCard()
     home();
   });
@@ -140,6 +140,7 @@ async function getData2() {
   console.log(y);
   const num = list2[y - 1];
   console.log(num);
+  // const num = list2[279]
 
   try {
     const response = await fetch(num);
@@ -180,14 +181,14 @@ async function createCard(info, list) {
   console.log(bob);
   const names = info.name.toUpperCase();
   const sprites = info.sprites.front_default;
-  list.push({ name: names, sprite: sprites, types: cat });
+  list.push({ name: names, sprite: sprites, types: cat, link: info.species.url });
   console.log(list);
 }
 
-function indexCard(name, sprite, types) {
+function indexCard(name, sprite, types, link) {
   document.querySelector(".box2").insertAdjacentHTML(
     "beforeend",
-    `<div class="item2">
+    `<div class="item2" id = "${link}">
         <h2 class = "text">${name}</h2>
         <img class = "img2" src=${sprite} alt="This is ${name}">
         <p class = "text2">Type: ${types.join(" | ")}</p>
@@ -198,7 +199,7 @@ function indexCard(name, sprite, types) {
   );
 }
 
-async function speciesCard() {
+async function speciesCard(selected) {
   document.querySelector(".box2").remove();
   document.body.insertAdjacentHTML(
     "beforeend",
@@ -207,15 +208,24 @@ async function speciesCard() {
     </div>
     `
   )
-  await getDogs(data2.species.url)
+  await getDogs(selected)
+  // adds to list called evolution
   await dogs(data3.evolution_chain.url)
   evolution.forEach((call)=> getDogs3(call))
   console.log(evolution)
+  let i = 0
+  const evolen = evolution.length 
+  while(i<=evolen){
+    evolution.pop()
+    i ++
+  }
 }
 
 async function evolutionCard(){
   document.querySelectorAll(".btn4").forEach((call)=>call.addEventListener("click", async function(){
-    await speciesCard()
+    const cardId = this.parentElement.id
+    console.log("this is", cardId)
+    await speciesCard(cardId)
   }))
   
 }
