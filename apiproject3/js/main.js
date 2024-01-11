@@ -194,13 +194,12 @@ function indexCard(name, sprite, types) {
         <p class ="description">This is ${name}</p>
         <button class="btn4">Evolution</button>
       </div>
-
       `
   );
 }
 
-async function speciesCard(){
-  document.querySelector(".box2").remove()
+async function speciesCard() {
+  document.querySelector(".box2").remove();
   document.body.insertAdjacentHTML(
     "beforeend",
     `
