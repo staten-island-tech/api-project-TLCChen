@@ -143,12 +143,12 @@ async function getList() {
 // Fetches information for a specific pokemon using the information from the API.
 // Returns the name of the pokemon.
 async function getData2() {
-  // const len = list2.length;
-  // const y = Math.floor(Math.random() * len);
-  // console.log(y);
-  // const num = list2[y - 1];
-  // console.log(num);
-  const num = list2[716];
+  const len = list2.length;
+  const y = Math.floor(Math.random() * len);
+  console.log(y);
+  const num = list2[y - 1];
+  console.log(num);
+  // const num = list2[716];
 
   try {
     const response = await fetch(num);
@@ -191,9 +191,16 @@ async function createCard(info, list) {
   console.log(bob);
   const names = info.name.toUpperCase();
   const sprites = info.sprites.front_default;
-  // if (list.forEach((cards) => cards.name === names)) {
-  //   console.log("This is already there");
+  list.forEach((cards) => {
+    if (cards.name != name2) {
+      console.log("This is already here.");
+    }
+  });
+  // if (list.forEach((cards) => cards.name != names)) {
+  //   console.log("This is already there.");
   // }
+  list.forEach((cards) => console.log(cards.name));
+  console.log(names);
   list.push({
     name: names,
     sprite: sprites,
